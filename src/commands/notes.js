@@ -3,7 +3,7 @@ const { Command, flags } = require("@oclif/command");
 const userHome = require("user-home");
 const cmdArgsAction = require('../helpers/cfg_options/cmd_post_args_action');
 
-let newNote = require('../helpers/tasks/new');
+let newNote = require('../helpers/notes/new');
 
 
 class NotesCommand extends Command {
@@ -17,11 +17,12 @@ class NotesCommand extends Command {
     const { flags } = this.parse(NotesCommand);
     const all = flags.all || null ;
     const id = flags.id || null ;
-    const title = flags.title || null ;
-    const shortDescription = flags.shortDescription || null ;
-    const description = flags.description || null ;
-    const content = flags.content || null ;
+    const title = flags.title || "Missing_Title" ;
+    const shortDescription = flags.shortDescription || "Missing_ShortDescription" ;
+    const description = flags.description || "Missing_Description" ;
+    const content = flags.content || "Missing_Content" ;
     const status = flags.status || null ;
+    const ref_url = flags.ref_url || "#" ;
 
     switch (action) {
       case "new":

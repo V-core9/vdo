@@ -35,7 +35,7 @@ const makeNote = (title = null, description = null, ref_url = '#', shortDescript
 };
 
 
-const promptTitle = (postType = null) => {
+async function  promptTitle (postType = null) {
   switch (postType) {
     case 'tasks':
       var titlePromptTask = await prompt({type: 'input',name: 'newTaskTitle',message: 'Title of the new TASK ?'});
@@ -55,69 +55,95 @@ const promptTitle = (postType = null) => {
 };
 
 const titleCheck = ( postType = null, title = null ) => {
-  if ( postType !== null ) {
-    if (title === null) {
+  if ( postType === null ) {
+    console.log('ERROR: Missing Params in titleCheck()');
+    console.trace();
+    return false;
+  }
+
+  if (title === null) {
+    try {
+      title = promptTitle(postType);
+      if (title !== null ) {
+        return title;
+      } 
+      return title;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  }
+
+};
+
+//-> Used for making of new entry into some post type
+const extendedList = ( helperListLoc = null, postType = null , title = null , description = null , ref_url = "#", shortDescription = null , content = null ) => {
+  
+
+  if (helperListLoc === null ) helperListLoc = [];
+
+  switch (postType) {
+    case "notes":
       try {
-        title = promptTitle(postType);
-        if (title !== null ) {
-          return title;
-        } 
-        return false;
+        var waiterNote = makeNote(title, description, ref_url, shortDescription, content);
+        helperListLoc.push( waiterNote );
+        savePost( vdoConfig.main_notes_file, helperListLoc )
+        return true;
       } catch (err) {
         console.log(err);
         return err;
       }
-    }
-
-  } 
-  console.log('ERROR: Missing Params in titleCheck()');
-  console.trace();
-  return false;
-};
-
-//-> Used for making of new entry into some post type
-const extendedList = ( helperList = null, postType = null , title = null , description = null , ref_url = "#", shortDescription = null , content = null ) => {
-  var response = { data : false, path : false };
-  switch (postType) {
-    case "notes":
-      response.data = helperList.push( makeNote(title, description, ref_url, shortDescription, content) );
-      response.path = vdoConfig.main_note_file; 
-      return response;
       break;
 
     case "tasks":
-      response.data = helperList.push( makeTask(title, description, ref_url) );
-      response.path = vdoConfig.main_todo_file; 
-      return response;
+      try {
+        var waiterTask = makeTask(title, description, ref_url);
+        helperListLoc.push( waiterTask );
+        savePost( vdoConfig.main_todo_file, helperListLoc );
+        return true;
+      } catch (err) {
+        console.log(err);
+        return err;
+      }
       break;
   
     default:
-      console.log("ERROR: Missing or Unknown < helperList = null, postType = null  >");
+      console.log("ERROR: Missing or Unknown < helperListLoc = null, postType = null  >");
       return false;
       break;
   }
 };
 
 //---------------
-async function newPost ( params = null){   
+const newPost = ( params = null) => {   
   var postType = (params.postType) ? params.postType : null;   
   var title = (params.title) ? params.title : null;
   var shortDescription = (params.shortDescription) ? params.shortDescription : null;  
   var description = (params.description) ? params.description : null;
   var ref_url = (params.ref_url) ? params.ref_url : null;
-  var content = (params.ref_url) ? params.ref_url : null;
+  var content = (params.content) ? params.content : null;
   
   title = titleCheck(postType, title );
   helperList = postList(postType); 
-  helperList = extendedList(helperList, postType, title, description, ref_url, shortDescription, content);
+  var extendedListHelper = extendedList(helperList, postType, title, description, ref_url, shortDescription, content);
 
-  if (!helperList){
+  if (helperList === false){
     console.log(helperList);
     return helperList;
   }
 
-  return vSave( helperList.path , JSON.stringify(helperList.data , true, 2)); 
 }
 
+const savePost = (path, data) => {
+  
+  try {
+    vSave( path , JSON.stringify( data , true, 2) );
+    console.log("Added new note!");
+    return true;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
 //---------------
 module.exports = newPost;

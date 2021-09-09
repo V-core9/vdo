@@ -8,7 +8,7 @@ const postList = ( postName = null ) => {
 
   switch (postName) {
     case "notes":
-      response = vReadFile(vdoConfig.main_note_file);
+      response = vReadFile(vdoConfig.main_notes_file);
       break;
 
     case "tasks":
