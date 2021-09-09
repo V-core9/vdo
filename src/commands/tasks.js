@@ -82,7 +82,15 @@ class TasksCommand extends Command {
         break;
 
       case "purge_system":
-        console.log("Number of All Tasks: " + totalNumber() );
+        try {
+          console.log("Starting Purge >> NoT: " + totalNumber() );
+          const [createTodo] = require("../helpers/config/create");
+          createTodo();
+          console.log("FINISHED Purge >> NoT: " + totalNumber() );
+        } catch (err){
+          console.log(err);
+          return err;
+        }
         break;
 
 
