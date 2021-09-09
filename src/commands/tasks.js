@@ -72,21 +72,25 @@ class TasksCommand extends Command {
         break;
 
       case "total_number":
-        console.log("Number of All Tasks: " + totalNumber() );
+        console.log("Number of All Tasks [NoaT] : " + totalNumber() );
         break;
 
       case "generate_test":
-        console.log("Number of All Tasks: " + totalNumber() );
+        var befGenNoaT  = totalNumber();
+        console.log("BEFORE Generation [NoaT] : " + befGenNoaT );
         const generateTasks = require('../../test/tasks/generate_tasks.test');
         generateTasks(generate_number);
+        var aftGenNoaT  = totalNumber();
+        console.log("AFTER Generation [NoaT] : " + aftGenNoaT );
+        console.log("Total NEW : " + ( aftGenNoaT - befGenNoaT) );
         break;
 
       case "purge_system":
         try {
-          console.log("Starting Purge >> NoT: " + totalNumber() );
+          console.log("Starting Purge >> NoaT: " + totalNumber() );
           const [createTodo] = require("../helpers/config/create");
           createTodo();
-          console.log("FINISHED Purge >> NoT: " + totalNumber() );
+          console.log("FINISHED Purge >> NoaT: " + totalNumber() );
         } catch (err){
           console.log(err);
           return err;
