@@ -4,22 +4,14 @@ const { Command, flags } = require("@oclif/command");
 const taskList = require('../helpers/tasks/list');
 var helperTaskList = taskList();
 
-const totalNumber = require('../helpers/tasks/total_number')
-
+const totalNumber = require('../helpers/tasks/total_number');
+const cmdArgsAction = require('../helpers/cfg_options/cmd_post_args_action');
 
 let newTask = require('../helpers/tasks/new');
 
 //-------------
 class TasksCommand extends Command {
-  static args = [
-    {
-      name: "action",
-      required: true,
-      description: "action/function/method you want it to execute",
-      default: "view",
-      options: ["view", "new", "trash", "untrash", "edit", "update", "complete", "incomplete", "total_number", "generate_test", "purge_system"],
-    },
-  ];
+  static args = [cmdArgsAction,];
 
   async run() {
     const { args } = this.parse(TasksCommand);

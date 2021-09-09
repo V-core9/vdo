@@ -1,19 +1,13 @@
 /*jshint esversion: 8 */
 const { Command, flags } = require("@oclif/command");
 const userHome = require("user-home");
+const cmdArgsAction = require('../helpers/cfg_options/cmd_post_args_action');
 
+let newNote = require('../helpers/tasks/new');
 
 
 class NotesCommand extends Command {
-  static args = [
-    {
-      name: "action",
-      required: true,
-      description: "action/function/method you want it to execute",
-      default: "view",
-      options: ["view", "new", "trash", "untrash", "edit", "update"],
-    },
-  ];
+  static args = [cmdArgsAction,];
 
   async run() {
     const { args } = this.parse(NotesCommand);
@@ -29,11 +23,9 @@ class NotesCommand extends Command {
     const content = flags.content || null ;
     const status = flags.status || null ;
 
-    this.log(`hello ${title} from C:\\Users\\v__V_\\_V_\\vdo\\src\\commands\\notes.js`);
-
     switch (action) {
       case "new":
-        console.log("Sorry, not yet ready for use!");
+        newNote( title, description, ref_url, shortDescription, content );
         break;
 
       case "view":

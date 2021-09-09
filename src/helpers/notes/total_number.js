@@ -1,16 +1,9 @@
 /*jshint esversion: 8 */
 //---------------
-const notesList = require('./list');
+const postTotalNumber = require('../post_handle/total_number');
 
 const totalNumber = () => {
-  try {
-    var helperNotesList = notesList();
-    var len = helperNotesList.length;
-    return len;
-  } catch (err){
-    console.log(err);
-    return err;
-  }
+  return postTotalNumber('notes');
 };
 
 module.exports = totalNumber;
