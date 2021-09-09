@@ -105,6 +105,7 @@ OPTIONS
   -r, --ref_url=ref_url                    Reference URL to use
   -s, --status=status                      status to use
   -t, --title=title                        title to use
+  -y, --yes=yes                            Auto Confirm YES
 
 DESCRIPTION
   ...
