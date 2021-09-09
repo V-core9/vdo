@@ -35,6 +35,7 @@ class TasksCommand extends Command {
     const status = flags.status || null;
     const ref_url = flags.ref_url || '#';
     const generate_number = flags.generate_number || 150;
+    const yes = (flags.yes) ? true : false;
 
     switch (action) {
       case "new":
@@ -86,14 +87,35 @@ class TasksCommand extends Command {
         break;
 
       case "purge_system":
-        try {
-          console.log("Starting Purge >> NoaT: " + totalNumber() );
-          const [createTodo] = require("../helpers/config/create");
-          createTodo();
-          console.log("FINISHED Purge >> NoaT: " + totalNumber() );
-        } catch (err){
-          console.log(err);
-          return err;
+        console.log("This will DELETE ALL Tasks.");
+        var confirmedPurge = yes;
+        if (yes !== true) {
+          const { prompt } = require('enquirer');
+ 
+          const response = await prompt({
+            type: 'input',
+            name: 'purgeConfirm',
+            message: 'Type "yes" to confirm : '
+          });
+          
+          console.log(response);
+          if (response.purgeConfirm.toLowerCase() === 'yes'){
+            confirmedPurge = true;
+          } 
+        }
+        if (confirmedPurge){
+          try {
+            console.log("Starting Purge >> NoaT: " + totalNumber() );
+            const [createTodo] = require("../helpers/config/create");
+            createTodo();
+            console.log("FINISHED Purge >> NoaT: " + totalNumber() );
+          } catch (err){
+            console.log(err);
+            return err;
+          }
+        } else {
+          console.log("ERROR: System Purge Confirmation Failed. Aborting purge...");
+          return false;
         }
         break;
 
@@ -120,6 +142,7 @@ TasksCommand.flags = {
   id: flags.string({ char: "i", description: "id to use" }),
   ref_url: flags.string({ char: "r", description: "Reference URL to use" }),
   generate_number: flags.string({ char: "g", description: "Number to generate as test" }), 
+  yes: flags.string({ char: "y", description: "Auto Confirm YES" }), 
 };
 
 module.exports = TasksCommand;
