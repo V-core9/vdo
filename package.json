@@ -15,6 +15,7 @@
     "cli-progress": "^3.9.0",
     "command-line-usage": "^6.1.1",
     "enquirer": "^2.3.6",
+    "faker": "^5.5.3",
     "user-home": "^3.0.0",
     "uuid": "^8.3.2"
   },

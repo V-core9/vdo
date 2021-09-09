@@ -1,64 +1,13 @@
 /*jshint esversion: 8 */
-const { prompt } = require('enquirer');
-const { v4: uuidv4 } = require('uuid');
 const { Command, flags } = require("@oclif/command");
 
 const taskList = require('../helpers/tasks/list');
 var helperTaskList = taskList();
 
-const vSave = require("../helpers/vfs/v_save");
+const totalNumber = require('../helpers/tasks/total_number')
 
-const loadConfig = require("../helpers/config/load");
-const vdoConfig = loadConfig();
 
-const setStatus = (id = null, status = false) => {
-  console.log("\n-----<[-s- WORK-IN-PROGRESS -s-]>-----------\n");
-  if (id === null) {
-    console.log('ERROR: Can not trash item >> Empty ID');
-    return false;
-  }
-  console.log('HELPER:  ' + helperTaskList);
-  helperTaskList.forEach(item => {
-    if (item.id === id) {
-        item.status = status;
-    }
-  });
-  vSave(vdoConfig.main_todo_file, JSON.stringify(helperTaskList, true, 2));
-  console.log("\n-----<[-e- WORK-IN-PROGRESS -e-]>-----------\n");
-}
-
-//---------------
-async function newTask (title = null, description = null, ref_url = '#'){        
-    var helpTitle = title;
-
-    if (title === null) {
-      const questionNewTitle = [{
-        type: 'input',
-        name: 'newTaskTitle',
-        message: 'Title of the new task?'
-      }];
-      var titlePrompt = await prompt(questionNewTitle);
-      helpTitle = titlePrompt.newTaskTitle;
-      console.log(helpTitle);
-    }
-
-    var newTask = {
-      id: uuidv4(),
-      title: helpTitle,
-      description: description,
-      ref_url: ref_url,
-      timestamps: {
-        born: Date.now(),
-        updated: Date.now(),
-        done: null,
-      },
-      status: 'draft',
-    };
-
-    helperTaskList.push(newTask);
-
-    vSave(vdoConfig.main_todo_file, JSON.stringify(helperTaskList, true, 2));
-}
+let newTask = require('../helpers/tasks/new');
 
 //-------------
 class TasksCommand extends Command {
@@ -122,7 +71,7 @@ class TasksCommand extends Command {
         break;
 
       case "total_number":
-        console.log("Number of All Tasks: " + helperTaskList.length);
+        console.log("Number of All Tasks: " + totalNumber() );
         break;
 
       default:
