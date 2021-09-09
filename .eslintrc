@@ -1,0 +1,4 @@
+{
+  "extends": "oclif",
+  "unicorn/filename-case": ["error", {"case": "kebabCase"}]
+}

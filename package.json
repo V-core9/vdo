@@ -1,0 +1,56 @@
+{
+  "name": "vdo",
+  "description": "vdo -> Vodo -> V_Todo | :D ",
+  "version": "1.0.1",
+  "author": "🢔⟬⧋⛛⧋⟭🢖",
+  "bin": {
+    "vdo": "./bin/run"
+  },
+  "bugs": "https://github.com/V-tech-tools/vdo/issues",
+  "dependencies": {
+    "@oclif/command": "^1.8.0",
+    "@oclif/config": "^1.17.0",
+    "@oclif/plugin-help": "^3.2.3",
+    "boxen": "^5.0.1",
+    "cli-progress": "^3.9.0",
+    "command-line-usage": "^6.1.1",
+    "enquirer": "^2.3.6",
+    "user-home": "^3.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1.26.0",
+    "eslint": "^5.16.0",
+    "eslint-config-oclif": "^3.1.0",
+    "globby": "^10.0.2",
+    "rimraf": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json",
+    "/src"
+  ],
+  "homepage": "https://github.com/V-tech-tools/vdo",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "vdo",
+    "plugins": []
+  },
+  "repository": "V-tech-tools/vdo",
+  "scripts": {
+    "postpack": "rimraf oclif.manifest.json",
+    "posttest": "eslint .",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
