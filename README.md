@@ -92,14 +92,17 @@ USAGE
   $ vdo tasks ACTION
 
 ARGUMENTS
-  ACTION  (view|new|trash|untrash|edit|update) [default: view] action/function/method you want it to execute
+  ACTION  (view|new|trash|untrash|edit|update|complete|incomplete|total_number|generate_test|purge_system) [default:
+          view] action/function/method you want it to execute
 
 OPTIONS
   -a, --all=all                            all
   -c, --content=content                    content to use
   -d, --description=description            description to use
+  -g, --generate_number=generate_number    Number to generate as test
   -h, --shortDescription=shortDescription  shortDescription to use
   -i, --id=id                              id to use
+  -r, --ref_url=ref_url                    Reference URL to use
   -s, --status=status                      status to use
   -t, --title=title                        title to use
 

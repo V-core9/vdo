@@ -44,7 +44,7 @@ class ConfigCommand extends Command {
         break;
 
       case "create":
-        const createConfig = require("../helpers/config/create");
+        const [createConfig] = require("../helpers/config/create");
         createConfig();
         const makeDirs = require("../helpers/config/make_dirs");
         makeDirs();

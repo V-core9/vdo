@@ -17,7 +17,7 @@ class TasksCommand extends Command {
       required: true,
       description: "action/function/method you want it to execute",
       default: "view",
-      options: ["view", "new", "trash", "untrash", "edit", "update", "complete", "incomplete", "total_number"],
+      options: ["view", "new", "trash", "untrash", "edit", "update", "complete", "incomplete", "total_number", "generate_test", "purge_system"],
     },
   ];
 
@@ -34,6 +34,7 @@ class TasksCommand extends Command {
     const content = flags.content || null;
     const status = flags.status || null;
     const ref_url = flags.ref_url || '#';
+    const generate_number = flags.generate_number || 150;
 
     switch (action) {
       case "new":
@@ -74,6 +75,17 @@ class TasksCommand extends Command {
         console.log("Number of All Tasks: " + totalNumber() );
         break;
 
+      case "generate_test":
+        console.log("Number of All Tasks: " + totalNumber() );
+        const generateTasks = require('../../test/tasks/generate_tasks.test');
+        generateTasks(generate_number);
+        break;
+
+      case "purge_system":
+        console.log("Number of All Tasks: " + totalNumber() );
+        break;
+
+
       default:
         console.log("Sorry, don't think that exists actually!");
         break;
@@ -95,6 +107,7 @@ TasksCommand.flags = {
   status: flags.string({ char: "s", description: "status to use" }),
   id: flags.string({ char: "i", description: "id to use" }),
   ref_url: flags.string({ char: "r", description: "Reference URL to use" }),
+  generate_number: flags.string({ char: "g", description: "Number to generate as test" }), 
 };
 
 module.exports = TasksCommand;
