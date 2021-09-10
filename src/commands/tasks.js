@@ -4,6 +4,8 @@ const { Command, flags } = require("@oclif/command");
 const taskList = require('../helpers/tasks/list');
 var helperTaskList = taskList();
 
+const setStatus = require('../helpers/tasks/set_status')
+
 const totalNumber = require('../helpers/tasks/total_number');
 const cmdArgsAction = require('../helpers/cfg_options/cmd_post_args_action');
 

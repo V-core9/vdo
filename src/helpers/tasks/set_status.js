@@ -1,6 +1,11 @@
 /*jshint esversion: 8 */
+const taskList = require('./list');
+var helperTaskList = taskList();
+const vSave = require("../vfs/v_save");
+const loadConfig = require("../config/load");
+const vdoConfig = loadConfig();
 //---------------
-const setStatus = (id = null, status = false) => {
+const setStatus = (  id = null, status = false) => {
   console.log("\n-----<[-s- WORK-IN-PROGRESS -s-]>-----------\n");
   if (id === null) {
     console.log('ERROR: Can not trash item >> Empty ID');
