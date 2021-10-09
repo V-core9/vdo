@@ -6,11 +6,11 @@ const dataLocation = require("./config/data_location")
 //console.log(userHome);
 const vReadFile = require("./vfs/v_read_file");
 
-let appConfig = vReadFile(path.join(__dirname, "cfg_data/_vdo.cfg.json"));
+let appConfig = vReadFile(path.join(__dirname, "cfg_data/_v_posts.cfg.json"));
 let demoTodo = vReadFile(path.join(__dirname, "cfg_data/todo_sample.json"));
 let demoNote = vReadFile(path.join(__dirname, "cfg_data/note_sample.json"));
 
-const vdoConfig = {
+const v_postsConfig = {
   dataLocation: dataLocation,
   appConfig: appConfig,
   sampleTodo: [{
@@ -43,4 +43,4 @@ const vdoConfig = {
   ]
 };
 
-module.exports = vdoConfig;
+module.exports = v_postsConfig;

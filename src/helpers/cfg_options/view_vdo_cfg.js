@@ -6,8 +6,8 @@ const userHome = require("user-home");
 const vReadFile = require("../vfs/v_read_file");
 const vSave = require("../vfs/v_save");
 
-let appConfig = vReadFile(path.join(__dirname, "_vdo.cfg.json"));
-let appConfigTEST = path.join(__dirname, "_vdo.cfg.test.json");
+let appConfig = vReadFile(path.join(__dirname, "_v_posts.cfg.json"));
+let appConfigTEST = path.join(__dirname, "_v_posts.cfg.test.json");
 
 console.log(appConfig);
 

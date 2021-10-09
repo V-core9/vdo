@@ -6,7 +6,7 @@ class StatusCommand extends Command {
   async run() {
     const { flags } = this.parse(StatusCommand);
     const name = flags.name || "world";
-    //this.log(`hello ${name} from C:\\Users\\v__V_\\_V_\\vdo\\src\\commands\\status.js`)
+    //this.log(`hello ${name} from C:\\Users\\v__V_\\_V_\\v_posts\\src\\commands\\status.js`)
     welcomePageCLI();
   }
 }

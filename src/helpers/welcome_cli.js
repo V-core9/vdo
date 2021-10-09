@@ -29,7 +29,7 @@ const optionDefinitions = [
 
 const sections = [
   {
-    header: "<]_V_[>  CLI_app:[ vdo ] ",
+    header: "<]_V_[>  CLI_app:[ v_posts ] ",
     content: {
       options: {
         columns: [
@@ -48,8 +48,8 @@ const sections = [
   {
     header: "Installation",
     content: [
-      "$ vdo {bold config} {underline create}",
-      "$ vdo {bold config} {underline view}",
+      "$ v_posts {bold config} {underline create}",
+      "$ v_posts {bold config} {underline view}",
       //  '$ example [{bold --timeout} {underline ms}] {bold --src} {underline file} ...',
       //  '$ example {bold --help}'
     ],
@@ -65,7 +65,7 @@ const sections = [
       },
       data: [
         {
-          one: "$ vdo {bold config} {underline create}",
+          one: "$ v_posts {bold config} {underline create}",
           two: "Box-drawing characters, also known as line-drawing characters.",
         },
       ],
@@ -81,7 +81,7 @@ const sections = [
       },
       data: [
         {
-          one: "$ vdo {bold config} {underline view}",
+          one: "$ v_posts {bold config} {underline view}",
           two: "Box-drawing characters, also known.",
         },
       ],
@@ -97,7 +97,7 @@ const sections = [
       },
       data: [
         {
-          one: "$ vdo {bold config} {underline remove}",
+          one: "$ v_posts {bold config} {underline remove}",
           two: "Form of semigraphics widely used in text user.",
         },
       ],

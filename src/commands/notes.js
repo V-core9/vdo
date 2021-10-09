@@ -32,11 +32,11 @@ class NotesCommand extends Command {
       case "view":
         console.log("\n-----<[-s- WORK-IN-PROGRESS -s-]>-----------\n");
         const loadConfig = require("../helpers/config/load");
-        const vdoConfig = loadConfig();
+        const v_postsConfig = loadConfig();
 
         
         const vReadFile = require("../helpers/vfs/v_read_file");
-        let notesList = vReadFile(vdoConfig.main_notes_file);
+        let notesList = vReadFile(v_postsConfig.main_notes_file);
 
         console.log(notesList);
         console.log("\n-----<[-e- WORK-IN-PROGRESS -e-]>-----------\n");

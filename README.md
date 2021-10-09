@@ -1,12 +1,12 @@
-vdo
+v_posts
 ===
 
-vdo -&gt; Vodo -&gt; V_Todo | :D 
+v_posts -&gt; Vodo -&gt; V_Todo | :D 
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/vdo.svg)](https://npmjs.org/package/vdo)
-[![Downloads/week](https://img.shields.io/npm/dw/vdo.svg)](https://npmjs.org/package/vdo)
-[![License](https://img.shields.io/npm/l/vdo.svg)](https://github.com/V-tech-tools/vdo/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/v_posts.svg)](https://npmjs.org/package/v_posts)
+[![Downloads/week](https://img.shields.io/npm/dw/v_posts.svg)](https://npmjs.org/package/v_posts)
+[![License](https://img.shields.io/npm/l/v_posts.svg)](https://github.com/V-tech-tools/v_posts/blob/master/package.json)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -15,31 +15,31 @@ vdo -&gt; Vodo -&gt; V_Todo | :D
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g vdo
-$ vdo COMMAND
+$ npm install -g v_posts
+$ v_posts COMMAND
 running command...
-$ vdo (-v|--version|version)
-vdo/1.0.1 win32-x64 node-v14.17.5
-$ vdo --help [COMMAND]
+$ v_posts (-v|--version|version)
+v_posts/1.0.1 win32-x64 node-v14.17.5
+$ v_posts --help [COMMAND]
 USAGE
-  $ vdo COMMAND
+  $ v_posts COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`vdo config ACTION`](#vdo-config-action)
-* [`vdo notes ACTION`](#vdo-notes-action)
-* [`vdo tasks ACTION`](#vdo-tasks-action)
-* [`vdo welcome`](#vdo-welcome)
+* [`v_posts config ACTION`](#v_posts-config-action)
+* [`v_posts notes ACTION`](#v_posts-notes-action)
+* [`v_posts tasks ACTION`](#v_posts-tasks-action)
+* [`v_posts welcome`](#v_posts-welcome)
 
-## `vdo config ACTION`
+## `v_posts config ACTION`
 
 Handles Vdo App configurations
 
 ```
 USAGE
-  $ vdo config ACTION
+  $ v_posts config ACTION
 
 ARGUMENTS
   ACTION  (view|create|registerOption) action/function/method you want it to execute
@@ -54,15 +54,15 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/config.js](https://github.com/V-tech-tools/vdo/blob/v1.0.1/src/commands/config.js)_
+_See code: [src/commands/config.js](https://github.com/V-tech-tools/v_posts/blob/v1.0.1/src/commands/config.js)_
 
-## `vdo notes ACTION`
+## `v_posts notes ACTION`
 
 Describe the command here
 
 ```
 USAGE
-  $ vdo notes ACTION
+  $ v_posts notes ACTION
 
 ARGUMENTS
   ACTION  (view|new|trash|untrash|edit|update|complete|incomplete|total_number|generate_test|purge_system) [default:
@@ -82,15 +82,15 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/notes.js](https://github.com/V-tech-tools/vdo/blob/v1.0.1/src/commands/notes.js)_
+_See code: [src/commands/notes.js](https://github.com/V-tech-tools/v_posts/blob/v1.0.1/src/commands/notes.js)_
 
-## `vdo tasks ACTION`
+## `v_posts tasks ACTION`
 
 Describe the command here
 
 ```
 USAGE
-  $ vdo tasks ACTION
+  $ v_posts tasks ACTION
 
 ARGUMENTS
   ACTION  (view|new|trash|untrash|edit|update|complete|incomplete|total_number|generate_test|purge_system) [default:
@@ -113,15 +113,15 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/tasks.js](https://github.com/V-tech-tools/vdo/blob/v1.0.1/src/commands/tasks.js)_
+_See code: [src/commands/tasks.js](https://github.com/V-tech-tools/v_posts/blob/v1.0.1/src/commands/tasks.js)_
 
-## `vdo welcome`
+## `v_posts welcome`
 
 Describe the command here
 
 ```
 USAGE
-  $ vdo welcome
+  $ v_posts welcome
 
 OPTIONS
   -n, --name=name  name to print
@@ -131,5 +131,5 @@ DESCRIPTION
   Extra documentation goes here
 ```
 
-_See code: [src/commands/welcome.js](https://github.com/V-tech-tools/vdo/blob/v1.0.1/src/commands/welcome.js)_
+_See code: [src/commands/welcome.js](https://github.com/V-tech-tools/v_posts/blob/v1.0.1/src/commands/welcome.js)_
 <!-- commandsstop -->

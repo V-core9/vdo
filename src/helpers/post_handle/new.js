@@ -4,7 +4,7 @@ const vSave = require("../vfs/v_save");
 const { prompt } = require('enquirer');
 const { v4: uuidv4 } = require('uuid');
 const loadConfig = require("../config/load");
-const vdoConfig = loadConfig();
+const v_postsConfig = loadConfig();
 
 var helperList = false;
 
@@ -87,7 +87,7 @@ const extendedList = ( helperListLoc = null, postType = null , title = null , de
       try {
         var waiterNote = makeNote(title, description, ref_url, shortDescription, content);
         helperListLoc.push( waiterNote );
-        savePost( vdoConfig.main_notes_file, helperListLoc )
+        savePost(v_postsConfig.main_notes_file, helperListLoc)
         return true;
       } catch (err) {
         console.log(err);
@@ -99,7 +99,7 @@ const extendedList = ( helperListLoc = null, postType = null , title = null , de
       try {
         var waiterTask = makeTask(title, description, ref_url);
         helperListLoc.push( waiterTask );
-        savePost( vdoConfig.main_todo_file, helperListLoc );
+        savePost(v_postsConfig.main_todo_file, helperListLoc);
         return true;
       } catch (err) {
         console.log(err);

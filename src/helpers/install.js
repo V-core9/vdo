@@ -30,7 +30,7 @@ const stopBar = () => {
 };
 const boxen = require("boxen");
 
-console.log(boxen("Installing <]_ vdo _[> CLI Application ", { padding: 1 }));
+console.log(boxen("Installing <]_ v_posts _[> CLI Application ", { padding: 1 }));
 
 // start the progress bar with a total value of 200 and start value of 0
 bar1.start(proBar.max, proBar.init);

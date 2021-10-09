@@ -5,7 +5,7 @@ const vSave = require("../vfs/v_save");
 const { prompt } = require('enquirer');
 const { v4: uuidv4 } = require('uuid');
 const loadConfig = require("../config/load");
-const vdoConfig = loadConfig();
+const v_postsConfig = loadConfig();
 const makeTask = (title = null, description = null, ref_url = '#') => {
   return {
     id: uuidv4(),
@@ -39,7 +39,7 @@ async function newTask (title = null, description = null, ref_url = '#'){
 
   helperTaskList.push(newTask);
 
-  return vSave(vdoConfig.main_todo_file, JSON.stringify(helperTaskList, true, 2));
+  return vSave(v_postsConfig.main_todo_file, JSON.stringify(helperTaskList, true, 2));
 }
 
 //---------------

@@ -3,7 +3,7 @@ const taskList = require('./list');
 var helperTaskList = taskList();
 const vSave = require("../vfs/v_save");
 const loadConfig = require("../config/load");
-const vdoConfig = loadConfig();
+const v_postsConfig = loadConfig();
 //---------------
 const setStatus = (  id = null, status = false) => {
   console.log("\n-----<[-s- WORK-IN-PROGRESS -s-]>-----------\n");
@@ -17,7 +17,7 @@ const setStatus = (  id = null, status = false) => {
         item.status = status;
     }
   });
-  vSave(vdoConfig.main_todo_file, JSON.stringify(helperTaskList, true, 2));
+  vSave(v_postsConfig.main_todo_file, JSON.stringify(helperTaskList, true, 2));
   console.log("\n-----<[-e- WORK-IN-PROGRESS -e-]>-----------\n");
 };
 

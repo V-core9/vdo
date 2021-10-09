@@ -1,12 +1,12 @@
 {
-  "name": "vdo",
-  "description": "vdo -> Vodo -> V_Todo | :D ",
+  "name": "v_posts",
+  "description": "v_posts -> Vodo -> V_Todo | :D ==>> BECOMES :: v_posts.\nA simple way to save data like many solutions are doing by declaring different post types and filtering by type.\nCan be set to work similar to WordPress and Store All post data in a single JSON file.\nOr to use \"per_post_type\" mode where it will save each post type into separate file for faster access times.... taking this idea step further and we get it to separate all data into separate files that are \"per_post\" [each post entry gets separtate file...using folders to organize those files into types].",
   "version": "1.0.1",
   "author": "🢔⟬⧋⛛⧋⟭🢖",
   "bin": {
-    "vdo": "./bin/run"
+    "v_posts": "./bin/run"
   },
-  "bugs": "https://github.com/V-tech-tools/vdo/issues",
+  "bugs": "https://github.com/V-tech-tools/v_posts/issues",
   "dependencies": {
     "@oclif/command": "^1.8.0",
     "@oclif/config": "^1.17.0",
@@ -35,7 +35,7 @@
     "/oclif.manifest.json",
     "/src"
   ],
-  "homepage": "https://github.com/V-tech-tools/vdo",
+  "homepage": "https://github.com/V-tech-tools/v_posts",
   "keywords": [
     "oclif"
   ],
@@ -43,10 +43,10 @@
   "main": "src/index.js",
   "oclif": {
     "commands": "./src/commands",
-    "bin": "vdo",
+    "bin": "v_posts",
     "plugins": []
   },
-  "repository": "V-tech-tools/vdo",
+  "repository": "V-tech-tools/v_posts",
   "scripts": {
     "postpack": "rimraf oclif.manifest.json",
     "posttest": "eslint .",

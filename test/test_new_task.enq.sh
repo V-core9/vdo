@@ -1,4 +1,4 @@
 for i in {1..5000}
 do
-   echo "demoTitleENQ"$i|vdo tasks new
+   echo "demoTitleENQ"$i|v_posts tasks new
 done

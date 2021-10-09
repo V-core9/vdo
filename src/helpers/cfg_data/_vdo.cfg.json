@@ -1,14 +1,14 @@
 {
   "Application": {
-    "name": "Vdo",
+    "name": "V_Posts",
     "description": "<]_V_[> ToDo Help Application",
     "version": 11111,
-    "data_folder": "C:\\Users\\v__V_\\vdo\\"
+    "data_folder": "C:\\Users\\v__V_\\v_posts\\"
   },
   "Author": {
     "name": "-v-",
     "url": "http://localhost:8888/yeaa/nooot/yet/working/:D"
   },
-  "main_todo_file": "C:\\Users\\v__V_\\vdo\\todo_main.json",
-  "main_notes_file": "C:\\Users\\v__V_\\vdo\\notes_main.json"
+  "main_todo_file": "C:\\Users\\v__V_\\v_posts\\todo_main.json",
+  "main_notes_file": "C:\\Users\\v__V_\\v_posts\\notes_main.json"
 }
